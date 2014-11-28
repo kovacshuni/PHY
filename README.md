@@ -1,9 +1,14 @@
-#PHY
+# PHY Game
 
 PHY is a simulator program that describes the action, behavior and motion
 of different types of physical elements: bodies, force fields and spaces.
 Using the software, one can easily study the effects created by systems of forces
 that are hard to understand in the real world.
+
+## Run
+
+`mvn clean install`
+`java -jar target/phy-1.0.0-SNAPSHOT.jar`
 
 ## Help in operating
 
@@ -17,14 +22,6 @@ For more detailed description please refer to the *PHY Software Documentation.do
 ## Contributing
 
 Feel free to open a pull-request.
-
-Building locally:
-
-```
-git clone https://github.com/kovacshuni/PHY.git
-cd phy
-mvn clean install
-```
 
 ## Creator
 
