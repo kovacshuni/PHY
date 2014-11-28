@@ -7,8 +7,8 @@ that are hard to understand in the real world.
 
 ## Run
 
-`mvn clean install`
-`java -jar target/phy-1.0.0-SNAPSHOT.jar`
+1. `mvn clean install`
+2. `java -jar target/phy-1.0.0-SNAPSHOT.jar`
 
 ## Help in operating
 
