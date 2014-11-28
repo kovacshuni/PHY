@@ -1,6 +1,5 @@
-package com.kovacshuni.phy;
+package com.hunorkovacs.phy;
 
-import java.awt.*;
 import java.util.Vector;
 
 /**
@@ -18,7 +17,7 @@ public class GravityField extends PointlikeBody
     /**
      * The g property of the force field. Its magnitude is measured in N*kg.
      */
-    private Dimension g;
+    private com.hunorkovacs.phy.Dimension g;
    
     /**
      * Perfect definition of the object, assigning mass, position, velocity, g, model and name.
@@ -34,7 +33,7 @@ public class GravityField extends PointlikeBody
      * @param phymodel the model object which holds all the other bodies
      * @param name name to be assigned
      */ 
-    GravityField(double m, Dimension p, Dimension v, Dimension g, PHYModel phymodel, String name)
+    GravityField(double m, com.hunorkovacs.phy.Dimension p, com.hunorkovacs.phy.Dimension v, com.hunorkovacs.phy.Dimension g, PHYModel phymodel, String name)
     {
         super(m,p,v,phymodel,name);
         this.g = g;
@@ -44,7 +43,7 @@ public class GravityField extends PointlikeBody
      * Returns the g property of the object.
      * @return the vector holding x and y components of the force measured in N*kg.
      */
-    public Dimension getG()
+    public com.hunorkovacs.phy.Dimension getG()
     {
         return g;
     }
@@ -53,7 +52,7 @@ public class GravityField extends PointlikeBody
      * Sets the g property of the object.
      * @param g the vector holding x and y components of the force measured in N*kg.
      */
-    public void setG(Dimension g)
+    public void setG(com.hunorkovacs.phy.Dimension g)
     {
         this.g = g;
     }
@@ -65,9 +64,9 @@ public class GravityField extends PointlikeBody
      * @param m the mass of the body to act on
      * @return the force vector applied on the given body by this field
      */
-    public Dimension act(double m)
+    public com.hunorkovacs.phy.Dimension act(double m)
     {
-        return new Dimension(g.getX()*m, g.getY()*m);
+        return new com.hunorkovacs.phy.Dimension(g.getX()*m, g.getY()*m);
     }
     
     /**
@@ -78,13 +77,13 @@ public class GravityField extends PointlikeBody
      * we should not consider the actual one as an acting force during the calculation.
      * Otherwise each force would make itself accelerate.
      */    
-    protected Dimension calculateActingForces()
+    protected com.hunorkovacs.phy.Dimension calculateActingForces()
     {
         int i,j;
         boolean identicalSets;
         Vector bodyinris = new Vector();
         Vector bodyinforce = new Vector();
-        Dimension F = new Dimension();
+        com.hunorkovacs.phy.Dimension F = new com.hunorkovacs.phy.Dimension();
         
         for (i=0; i<phymodel.getnRIS(); i++) if (isInsideRIS(p, phymodel.getRISAt(i))) bodyinris.add(phymodel.getRISAt(i));
 outer:  for (i=0; i<phymodel.getnGF(); i++){

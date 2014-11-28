@@ -1,27 +1,27 @@
-package com.kovacshuni.phy;
+package com.hunorkovacs.phy;
 
 /**
- * This is a window where the user can edit the properties of a GravityField object.
+ * This is a window where the user can edit the properties of a RectangularIsolatorSpace object.
  */
-public class EditGFView extends EditXView
+public class EditRISView extends EditXView
 {
-    private javax.swing.JLabel gxLabel;
-    private javax.swing.JLabel gyLabel;    
-
-    private javax.swing.JTextField gxField;    
-    private javax.swing.JTextField gyField;
-
-    private javax.swing.JSeparator jSeparator3;    
+    private javax.swing.JLabel dxLabel;
+    private javax.swing.JLabel dyLabel;    
     
+    protected javax.swing.JTextField dxField;    
+    protected javax.swing.JTextField dyField;
+    
+    private javax.swing.JSeparator jSeparator3;      
+
     /**
      * Always use this constructor. Assigns the model, the object to be edited, initializes the window (components and layout), and fills the text fields with corresponding values.
      * @param phymodel the model of the simulation, having the addresses of all simulation objects
      * @indexToEdit the index of the element to edit in the model's vector
      */    
-    EditGFView(PHYModel phymodel, int indexToEdit)
+    EditRISView(PHYModel phymodel, int indexToEdit)
     {
         super(phymodel);
-        this.XToEdit = phymodel.getGFAt(indexToEdit);
+        this.XToEdit = phymodel.getRISAt(indexToEdit);
         initComponents();
         refreshFields();
     }
@@ -49,18 +49,18 @@ public class EditGFView extends EditXView
         nameField = new javax.swing.JTextField();
         nameLabel = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
-        gxField = new javax.swing.JTextField();
-        gxLabel = new javax.swing.JLabel();
-        gyField = new javax.swing.JTextField();
-        gyLabel = new javax.swing.JLabel();
+        dxField = new javax.swing.JTextField();
+        dxLabel = new javax.swing.JLabel();
+        dyField = new javax.swing.JTextField();
+        dyLabel = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setTitle("Properties");
-        setAlwaysOnTop(true);        
+        setAlwaysOnTop(true);
         setResizable(false);
 
         titleLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        titleLabel.setText("Gravitational Field");
+        titleLabel.setText("Rectangular Isolator Space");
 
         posxLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         posxLabel.setText("Position X:");
@@ -96,15 +96,15 @@ public class EditGFView extends EditXView
         nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         nameLabel.setText("Name:");
 
-        gxField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        dxField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
 
-        gxLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        gxLabel.setText("gX:");
+        dxLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        dxLabel.setText("Dimension X:");
 
-        gyField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        dyField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
 
-        gyLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        gyLabel.setText("gY:");
+        dyLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        dyLabel.setText("Dimension Y:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,12 +137,12 @@ public class EditGFView extends EditXView
                     .addComponent(okButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(gxLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
-                            .addComponent(gyLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE))
+                            .addComponent(dxLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+                            .addComponent(dyLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(gyField, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                            .addComponent(gxField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))))
+                            .addComponent(dyField, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                            .addComponent(dxField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -180,12 +180,12 @@ public class EditGFView extends EditXView
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(gxField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(gxLabel))
+                    .addComponent(dxField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dxLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(gyField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(gyLabel))
+                    .addComponent(dyField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dyLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cancelButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -198,40 +198,40 @@ public class EditGFView extends EditXView
     }       
 
     /**
-     * Returns gX field's value.
-     * @return the value specified at the text field gxField.
-     */     
-    public String getgxField()
+     * Returns DimensionX field's value.
+     * @return the value specified at the text field dxField.
+     */    
+    public String getdxField()
     {
         try{
-            return gxField.getText();
+            return dxField.getText();
         }
         catch (NullPointerException e){
             return "0";
         }
     }  
-   
+    
     /**
-     * Returns gY field's value.
-     * @return the value specified at the text field gyField.
+     * Returns DimensionY field's value.
+     * @return the value specified at the text field dyField.
      */    
-    public String getgyField()
+    public String getdyField()
     {
         try{
-            return gyField.getText();
+            return dyField.getText();
         }
         catch (NullPointerException e){
             return "0";
         }
-    }      
+    }    
     
     /**
-     * Fills the text fields for gX, and gY with the edited objects actual attributes.
-     */
+     * Fills the text fields for Dimension X, and Dimension Y with the edited objects actual attributes.
+     */    
     public void refreshFields()
     {
         super.refreshFields();
-        gxField.setText(strPre(((GravityField)XToEdit).getG().getX()));
-        gyField.setText(strPre(((GravityField)XToEdit).getG().getY()));        
-    }
+        dxField.setText(strPre(((RectangularIsolatorSpace)XToEdit).getDimension().getX()));
+        dyField.setText(strPre(((RectangularIsolatorSpace)XToEdit).getDimension().getY()));        
+    }    
 }

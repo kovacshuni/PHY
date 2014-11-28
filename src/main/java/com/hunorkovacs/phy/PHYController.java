@@ -1,8 +1,7 @@
-package com.kovacshuni.phy;
+package com.hunorkovacs.phy;
 
 import java.awt.event.*;
 import javax.swing.event.*;
-import javax.swing.*;
 import java.util.Vector;
 import java.util.Enumeration;
 import java.lang.Math;

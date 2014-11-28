@@ -1,6 +1,4 @@
-package com.kovacshuni.phy;
-
-import java.awt.event.*;
+package com.hunorkovacs.phy;
 
 /**
  * Defines the actions to be perfromed on different user events.

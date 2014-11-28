@@ -1,9 +1,7 @@
-package com.kovacshuni.phy;
+package com.hunorkovacs.phy;
 
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
 import java.lang.Math;
 import java.util.Vector;
 
@@ -26,11 +24,11 @@ public class DrawPanel extends JPanel
     /**
      * The distance between the coordinates of the center of the panel and the origin.
      */
-    private Dimension offset;
+    private com.hunorkovacs.phy.Dimension offset;
     /**
      * Temporary variable holding the coordinate where the user pressed the mouse button.
      */
-    private Dimension refCoord;
+    private com.hunorkovacs.phy.Dimension refCoord;
     /**
      * The zoom multiplier. 1 meter is equivlent to 1 pixel when this variable's value is 1.
      */
@@ -45,8 +43,8 @@ public class DrawPanel extends JPanel
     {
         this.phymodel = phymodel;
         this.parentview = parentview;
-        offset = new Dimension();
-        refCoord = new Dimension();
+        offset = new com.hunorkovacs.phy.Dimension();
+        refCoord = new com.hunorkovacs.phy.Dimension();
         zoom = 100;
     }
     
@@ -57,7 +55,7 @@ public class DrawPanel extends JPanel
     {
         int t1, i, j;
         double ii;
-        Dimension t2;
+        com.hunorkovacs.phy.Dimension t2;
         
         
         Graphics2D g2 = (Graphics2D)g;
@@ -76,7 +74,7 @@ public class DrawPanel extends JPanel
             else g2.setColor(new Color(70,70,70));
             //above and to the right of the center point            
             j = 0;           
-            while(((t2 = convert(new Dimension(Math.round(offset.getX()/ii)*ii+j*ii, Math.round(offset.getY()/ii)*ii+j*ii),offset,zoom)).getX() <= getWidth())
+            while(((t2 = convert(new com.hunorkovacs.phy.Dimension(Math.round(offset.getX()/ii)*ii+j*ii, Math.round(offset.getY()/ii)*ii+j*ii),offset,zoom)).getX() <= getWidth())
             || (t2.getY() >= 0)){
                 if (t2.getX() <= getWidth()){
                     if (Math.round(offset.getX()/ii)*ii+j*ii-(int)(Math.round(offset.getX()/ii)*ii+j*ii) != 0){
@@ -95,7 +93,7 @@ public class DrawPanel extends JPanel
             }  
             //below and to the left of the center point
             j = 1;
-            while(((t2 = convert(new Dimension(Math.round(offset.getX()/ii)*ii-j*ii, Math.round(offset.getY()/ii)*ii-j*ii),offset,zoom)).getX() >= 0)
+            while(((t2 = convert(new com.hunorkovacs.phy.Dimension(Math.round(offset.getX()/ii)*ii-j*ii, Math.round(offset.getY()/ii)*ii-j*ii),offset,zoom)).getX() >= 0)
             || (t2.getY() <= getHeight())){
                 if (t2.getX() >= 0){
                     if (Math.round(offset.getX()/ii)*ii-j*ii-(int)(Math.round(offset.getX()/ii)*ii-j*ii) == 0)                     
@@ -169,9 +167,9 @@ public class DrawPanel extends JPanel
      * @param z zoom
      * return the coordinates of the given point in the computer graphics system
      */
-    private Dimension convert(Dimension p, Dimension o, double z)
+    private com.hunorkovacs.phy.Dimension convert(com.hunorkovacs.phy.Dimension p, com.hunorkovacs.phy.Dimension o, double z)
     {
-        return new Dimension(this.getWidth()/2+(p.getX()-o.getX())*z, this.getHeight()/2-(p.getY()-o.getY())*z);
+        return new com.hunorkovacs.phy.Dimension(this.getWidth()/2+(p.getX()-o.getX())*z, this.getHeight()/2-(p.getY()-o.getY())*z);
     }
    
     /**
@@ -215,7 +213,7 @@ public class DrawPanel extends JPanel
      */
     private void drawB(Graphics2D g2, PointlikeBody pb)
     {
-           Dimension td = convert(pb.getPosition(), offset, zoom);
+           com.hunorkovacs.phy.Dimension td = convert(pb.getPosition(), offset, zoom);
            g2.drawLine((int)(Math.round(td.getX())-2), (int)(Math.round(td.getY())-2), (int)(Math.round(td.getX())+2), (int)(Math.round(td.getY())+2));
            g2.drawLine((int)(Math.round(td.getX())+2), (int)(Math.round(td.getY())-2), (int)(Math.round(td.getX())-2), (int)(Math.round(td.getY())+2));
     }
@@ -228,23 +226,23 @@ public class DrawPanel extends JPanel
      */    
     private void drawRIS(Graphics2D g2, RectangularIsolatorSpace ris)
     {
-            Dimension td = convert(ris.getPosition(), offset, zoom);
-            Dimension td2 = convert(new Dimension(ris.getPosition().getX()+ris.getDimension().getX(), ris.getPosition().getY()+ris.getDimension().getY()), offset, zoom);
-            Dimension td3;
+            com.hunorkovacs.phy.Dimension td = convert(ris.getPosition(), offset, zoom);
+            com.hunorkovacs.phy.Dimension td2 = convert(new com.hunorkovacs.phy.Dimension(ris.getPosition().getX()+ris.getDimension().getX(), ris.getPosition().getY()+ris.getDimension().getY()), offset, zoom);
+            com.hunorkovacs.phy.Dimension td3;
             if ((td.getX()<=td2.getX())&&(td.getY()<=td2.getY())){
-                td3 = new Dimension(td2.getX()-td.getX(), td2.getY()-td.getY());
+                td3 = new com.hunorkovacs.phy.Dimension(td2.getX()-td.getX(), td2.getY()-td.getY());
                 g2.drawRect((int)Math.round(td.getX()), (int)Math.round(td.getY()), (int)Math.round(td3.getX()), (int)Math.round(td3.getY()));
             }
             if ((td.getX()<=td2.getX())&&(td.getY()>td2.getY())){
-                td3 = new Dimension(td2.getX()-td.getX(), td.getY()-td2.getY());
+                td3 = new com.hunorkovacs.phy.Dimension(td2.getX()-td.getX(), td.getY()-td2.getY());
                 g2.drawRect((int)Math.round(td.getX()), (int)Math.round(td2.getY()), (int)Math.round(td3.getX()), (int)Math.round(td3.getY()));
             }
             if ((td.getX()>td2.getX())&&(td.getY()<=td2.getY())){
-                td3 = new Dimension(td.getX()-td2.getX(), td2.getY()-td.getY());
+                td3 = new com.hunorkovacs.phy.Dimension(td.getX()-td2.getX(), td2.getY()-td.getY());
                 g2.drawRect((int)Math.round(td2.getX()), (int)Math.round(td.getY()), (int)Math.round(td3.getX()), (int)Math.round(td3.getY()));
             }            
             if ((td.getX()>td2.getX())&&(td.getY()>td2.getY())){
-                td3 = new Dimension(td.getX()-td2.getX(), td.getY()-td2.getY());
+                td3 = new com.hunorkovacs.phy.Dimension(td.getX()-td2.getX(), td.getY()-td2.getY());
                 g2.drawRect((int)Math.round(td2.getX()), (int)Math.round(td2.getY()), (int)Math.round(td3.getX()), (int)Math.round(td3.getY()));
             }        
     }
@@ -257,12 +255,12 @@ public class DrawPanel extends JPanel
      */    
     private void drawGF(Graphics2D g2, GravityField gf)
     {
-            Dimension td = convert(gf.getPosition(), offset, zoom);
+            com.hunorkovacs.phy.Dimension td = convert(gf.getPosition(), offset, zoom);
             
             g2.drawLine((int)(Math.round(td.getX())-2), (int)(Math.round(td.getY())-2), (int)(Math.round(td.getX())+2), (int)(Math.round(td.getY())+2));
             g2.drawLine((int)(Math.round(td.getX())+2), (int)(Math.round(td.getY())-2), (int)(Math.round(td.getX())-2), (int)(Math.round(td.getY())+2));
 
-            Dimension td2 = convert(new Dimension(gf.getPosition().getX()+gf.getG().getX(), gf.getPosition().getY()+gf.getG().getY()), offset, zoom);
+            com.hunorkovacs.phy.Dimension td2 = convert(new com.hunorkovacs.phy.Dimension(gf.getPosition().getX()+gf.getG().getX(), gf.getPosition().getY()+gf.getG().getY()), offset, zoom);
             g2.drawLine((int)Math.round(td.getX()), (int)Math.round(td.getY()), (int)Math.round(td2.getX()), (int)Math.round(td2.getY()));
             
             g2.drawOval((int)Math.round(td.getX())+5, (int)Math.round(td.getY())+5 /*szia kapd be*/, 30, 30);
@@ -273,7 +271,7 @@ public class DrawPanel extends JPanel
      * Returns the offset of the viewport.
      * @return the distance between the coordinates of the center of the viewport and the origin of the system
      */
-    public Dimension getOffset()
+    public com.hunorkovacs.phy.Dimension getOffset()
     {
         return offset;
     }
@@ -282,9 +280,9 @@ public class DrawPanel extends JPanel
      * Returns the dimensions of the panel.
      * @return the width and height of the black panel
      */
-    public Dimension getDimension()
+    public com.hunorkovacs.phy.Dimension getDimension()
     {
-        return new Dimension(getWidth(), getHeight());
+        return new com.hunorkovacs.phy.Dimension(getWidth(), getHeight());
     }
     
     /**

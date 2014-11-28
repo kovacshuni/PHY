@@ -1,4 +1,4 @@
-package com.kovacshuni.phy;
+package com.hunorkovacs.phy;
 
 import java.awt.event.*;
 import java.text.DecimalFormat;

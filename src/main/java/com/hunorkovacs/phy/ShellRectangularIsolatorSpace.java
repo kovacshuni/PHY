@@ -1,4 +1,4 @@
-package com.kovacshuni.phy;
+package com.hunorkovacs.phy;
 
 /**
  * A limited version of RectangularIsolatorSpace used only for saving initial state.

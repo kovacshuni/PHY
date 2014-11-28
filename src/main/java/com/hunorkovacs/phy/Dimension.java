@@ -1,4 +1,4 @@
-package com.kovacshuni.phy;
+package com.hunorkovacs.phy;
 
 /**
 * A vector in 2D.

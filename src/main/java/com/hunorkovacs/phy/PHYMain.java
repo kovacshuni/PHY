@@ -1,4 +1,4 @@
-package com.kovacshuni.phy;
+package com.hunorkovacs.phy;
 
 /**
  * Project for Mr. Joldos, Faculty of Automation and Computer Science, Technical University of Cluj-Napoca, Romania

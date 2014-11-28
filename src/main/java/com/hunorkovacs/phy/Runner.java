@@ -1,4 +1,4 @@
-package com.kovacshuni.phy;
+package com.hunorkovacs.phy;
 
 /**
  * This class is responsible for the continous rendering of the DrawPanel object.

@@ -1,27 +1,19 @@
-package com.kovacshuni.phy;
+package com.hunorkovacs.phy;
 
 /**
- * This is a window where the user can edit the properties of a RectangularIsolatorSpace object.
+ * This is a window where the user can edit the properties of a PointlikeBody object.
  */
-public class EditRISView extends EditXView
+public class EditBView extends EditXView
 {
-    private javax.swing.JLabel dxLabel;
-    private javax.swing.JLabel dyLabel;    
-    
-    protected javax.swing.JTextField dxField;    
-    protected javax.swing.JTextField dyField;
-    
-    private javax.swing.JSeparator jSeparator3;      
-
     /**
      * Always use this constructor. Assigns the model, the object to be edited, initializes the window (components and layout), and fills the text fields with corresponding values.
      * @param phymodel the model of the simulation, having the addresses of all simulation objects
      * @indexToEdit the index of the element to edit in the model's vector
-     */    
-    EditRISView(PHYModel phymodel, int indexToEdit)
+     */
+    public EditBView(PHYModel phymodel, int indexToEdit)
     {
         super(phymodel);
-        this.XToEdit = phymodel.getRISAt(indexToEdit);
+        this.XToEdit = phymodel.getBAt(indexToEdit);
         initComponents();
         refreshFields();
     }
@@ -48,19 +40,14 @@ public class EditRISView extends EditXView
         jSeparator2 = new javax.swing.JSeparator();
         nameField = new javax.swing.JTextField();
         nameLabel = new javax.swing.JLabel();
-        jSeparator3 = new javax.swing.JSeparator();
-        dxField = new javax.swing.JTextField();
-        dxLabel = new javax.swing.JLabel();
-        dyField = new javax.swing.JTextField();
-        dyLabel = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setTitle("Properties");
-        setAlwaysOnTop(true);
+        setAlwaysOnTop(true);        
         setResizable(false);
 
         titleLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        titleLabel.setText("Rectangular Isolator Space");
+        titleLabel.setText("Pointlike Body");
 
         posxLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         posxLabel.setText("Position X:");
@@ -91,29 +78,21 @@ public class EditRISView extends EditXView
 
         okButton.setText("OK");
 
-        nameField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
-
         nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         nameLabel.setText("Name:");
-
-        dxField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
-
-        dxLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        dxLabel.setText("Dimension X:");
-
-        dyField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
-
-        dyLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        dyLabel.setText("Dimension Y:");
+        
+        nameField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(okButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                    .addComponent(cancelButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
                             .addComponent(posxLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -129,20 +108,9 @@ public class EditRISView extends EditXView
                             .addComponent(massField)
                             .addComponent(velxField, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(velyField)))
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                    .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                    .addComponent(cancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                    .addComponent(okButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dxLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
-                            .addComponent(dyLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(dyField, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                            .addComponent(dxField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))))
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                    .addComponent(titleLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -176,17 +144,7 @@ public class EditRISView extends EditXView
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(velyField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(velyLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dxField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dxLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dyField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dyLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cancelButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(okButton)
@@ -195,43 +153,5 @@ public class EditRISView extends EditXView
         );
 
         pack();
-    }       
-
-    /**
-     * Returns DimensionX field's value.
-     * @return the value specified at the text field dxField.
-     */    
-    public String getdxField()
-    {
-        try{
-            return dxField.getText();
-        }
-        catch (NullPointerException e){
-            return "0";
-        }
-    }  
-    
-    /**
-     * Returns DimensionY field's value.
-     * @return the value specified at the text field dyField.
-     */    
-    public String getdyField()
-    {
-        try{
-            return dyField.getText();
-        }
-        catch (NullPointerException e){
-            return "0";
-        }
-    }    
-    
-    /**
-     * Fills the text fields for Dimension X, and Dimension Y with the edited objects actual attributes.
-     */    
-    public void refreshFields()
-    {
-        super.refreshFields();
-        dxField.setText(strPre(((RectangularIsolatorSpace)XToEdit).getDimension().getX()));
-        dyField.setText(strPre(((RectangularIsolatorSpace)XToEdit).getDimension().getY()));        
-    }    
+    }
 }

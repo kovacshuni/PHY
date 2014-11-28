@@ -1,8 +1,6 @@
-package com.kovacshuni.phy;
+package com.hunorkovacs.phy;
 
-import java.util.Date;
 import java.text.DecimalFormat;
-import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
@@ -355,12 +353,12 @@ public class PHYView extends JFrame
         drawPanel.scrollZoom(k);
     }    
     
-    public Dimension getOffset()
+    public com.hunorkovacs.phy.Dimension getOffset()
     {
         return drawPanel.getOffset();
     }
     
-    public Dimension getDimension()
+    public com.hunorkovacs.phy.Dimension getDimension()
     {
         return drawPanel.getDimension();
     }

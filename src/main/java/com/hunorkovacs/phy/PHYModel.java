@@ -1,7 +1,6 @@
-package com.kovacshuni.phy;
+package com.hunorkovacs.phy;
 
 import java.util.Vector;
-import java.util.Date;
 import javax.swing.DefaultListModel;
 
 /**
