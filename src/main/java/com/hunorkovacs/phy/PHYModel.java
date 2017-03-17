@@ -1,5 +1,6 @@
 package com.hunorkovacs.phy;
 
+import java.util.List;
 import java.util.Vector;
 import javax.swing.DefaultListModel;
 
@@ -46,6 +47,9 @@ public class PHYModel
      * Vector holding all instances of GravityFields.
      */    
     private Vector GF;
+
+    private List<GravitationalPoint> gravitationalPoints;
+
     /**
      * Vector for keeping in mind the initial states of all PointlikeBodys.
      */    
@@ -499,6 +503,10 @@ public class PHYModel
     public int getnGF()
     {
         return GF.size();
+    }
+
+    public List<GravitationalPoint> getGravitationalPoints() {
+        return
     }
     
     /**
